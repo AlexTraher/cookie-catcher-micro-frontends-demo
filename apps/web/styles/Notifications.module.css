@@ -1,0 +1,34 @@
+
+.notificationContainer {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--gunMetal);
+  box-sizing: border-box;
+  align-items: center;
+  height: 100%;
+}
+
+.notificationSection {
+  overflow: scroll;
+}
+
+.header {
+  color: var(--frenchLilac);
+  /* border-bottom: 2px solid var(--frenchLilac); */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-shadow: var(--shadow-elevation-medium);
+}
+
+.notification {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid var(--frenchLilac)
+}
+
+.notificationHeader {
+  color: var(--frenchLilac);
+  margin-bottom: 5px;
+}

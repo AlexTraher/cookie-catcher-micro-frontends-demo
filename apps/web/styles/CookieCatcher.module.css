@@ -1,0 +1,41 @@
+
+.canvasWrapper {
+  height: 100%;
+  width: 100%;
+  /* display: flex; */
+}
+
+.startButton {
+  position: relative;
+  margin: auto;
+  height: 60px;
+  font-size: 24px;
+  padding: 5px 15px;
+  margin: 50%;
+  /* width: 20px; */
+}
+
+@keyframes counter {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(2);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.countdown {
+  position: relative;
+  margin: 50%;
+  font-size: 24px;
+
+  animation: counter 1s;
+}

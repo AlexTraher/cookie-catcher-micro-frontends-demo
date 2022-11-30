@@ -1,0 +1,43 @@
+
+:root {
+  --spaceCadet: #313D5A;
+  --gunMetal: #183642;
+  --platinum: #EAEAEA;
+  --lavenderBlue: #CBC5EA;
+  --frenchLilac: #73628A;
+  --shadow-color: 0deg 0% 64%;
+  --shadow-elevation-low:
+    0px 0.4px 0.5px hsl(var(--shadow-color) / 0.27),
+    0px 0.6px 0.7px -1.2px hsl(var(--shadow-color) / 0.27),
+    0px 1.4px 1.6px -2.5px hsl(var(--shadow-color) / 0.27);
+  --shadow-elevation-medium:
+    0px 0.4px 0.5px hsl(var(--shadow-color) / 0.29),
+    0px 1.2px 1.3px -0.8px hsl(var(--shadow-color) / 0.29),
+    -0.1px 2.9px 3.3px -1.7px hsl(var(--shadow-color) / 0.29),
+    -0.1px 7px 7.9px -2.5px hsl(var(--shadow-color) / 0.29);
+  --shadow-elevation-high:
+    0px 0.4px 0.5px hsl(var(--shadow-color) / 0.27),
+    0px 1.9px 2.1px -0.4px hsl(var(--shadow-color) / 0.27),
+    -0.1px 3.4px 3.8px -0.7px hsl(var(--shadow-color) / 0.27),
+    -0.1px 5.6px 6.3px -1.1px hsl(var(--shadow-color) / 0.27),
+    -0.2px 8.9px 10px -1.4px hsl(var(--shadow-color) / 0.27),
+    -0.3px 13.9px 15.6px -1.8px hsl(var(--shadow-color) / 0.27),
+    -0.4px 21.1px 23.7px -2.1px hsl(var(--shadow-color) / 0.27),
+    -0.6px 31px 34.9px -2.5px hsl(var(--shadow-color) / 0.27);
+}
+
+html, body {
+  color: var(--gunMetal);
+  background-color: var(--platinum);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+#__next {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+

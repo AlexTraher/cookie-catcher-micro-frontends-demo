@@ -1,0 +1,20 @@
+
+
+.header {
+  position: sticky;
+  margin: 0;
+  top: 0;
+  background: var(--lavenderBlue);
+  padding: 3px 10px;
+  flex: 0 0 auto;
+  box-shadow: var(--shadow-elevation-medium);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.highScore {
+  color: var(--gunMetal);
+  padding: 0px 30px;
+  font-size: 30px;
+}
