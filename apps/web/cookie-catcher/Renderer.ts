@@ -12,6 +12,7 @@ export default class Renderer {
   static canvasHeight: number;
   static initialised: boolean = false;
   static direction: Direction = Direction.NONE;
+  static cookieImage: HTMLImageElement;
 
   static init(canvasContext: CanvasRenderingContext2D, cookieCount: number, canvasWidth: number, canvasHeight: number, boxSpeed: number, listener: (interceptCount: number) => void, doneListener: (interceptCount: number) => void) {
     this.listener = listener;
@@ -29,8 +30,16 @@ export default class Renderer {
     }
 
     Box.create(this.canvasWidth / 2, this.canvasHeight - 50, boxSpeed, canvasWidth - 100);
+    
+    const img = new Image()
+    img.src = "./cookie.png";
+    img.onload = () => {
+      debugger;
+      this.cookieImage = img;
+      this.initialised = true;
+      this.listener(Cookie.interceptCount);
+    }
 
-    this.initialised = true;
     console.log(this.canvasHeight);
   }
 
@@ -58,11 +67,7 @@ export default class Renderer {
 
   private static renderCookie(cookie: Cookie) {
     this.canvasContext.save();
-    //ctx.translate(x, y);
-    this.canvasContext.fillStyle = "red";
-    this.canvasContext.beginPath();
-    this.canvasContext.arc(cookie.x, cookie.y, 15, 0, 2 * Math.PI); // head
-    this.canvasContext.fill();
+    this.canvasContext.drawImage(this.cookieImage, cookie.x, cookie.y, 25, 25);
   }
 
   private static renderBox(box: Box) {
@@ -95,7 +100,7 @@ export default class Renderer {
 
 
   static tick() {
-    if(!this.canvasContext || !Box.box) {
+    if(!this.canvasContext || !Box.box || !this.cookieImage) {
       return;
     }
 

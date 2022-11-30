@@ -10,25 +10,24 @@ import styles from "../styles/index.module.css";
 
 export default function Web() {
   const client = useQueryClient();
-  // const [highScore, setHighScore] = useState(0);
+  const [speed, setSpeed] = useState(5);
 
   const highScoreMutation = useMutation(["highScore"], (score: number) => setHighScore(score), {
     onSuccess: () => {
       client.invalidateQueries(["highScore"])
     }
   });
-
   const onScoreUpdate = (score: number) => {
     highScoreMutation.mutate(score);
   }
 
   return (
     <>
-      <Navbar/>
+      <Navbar handleSpeedChange={(speed) => setSpeed(speed)} />
       <div className={styles.contentWrapper}>
         <main className={styles.main}>
           <ClientOnly>
-            <CookieCatcher onScoreUpdate={onScoreUpdate}/>
+            <CookieCatcher onScoreUpdate={onScoreUpdate} speed={speed}/>
           </ClientOnly>
           
         </main>

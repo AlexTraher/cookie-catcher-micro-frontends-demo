@@ -5,17 +5,20 @@ import Renderer from "../cookie-catcher/Renderer";
 import { Direction, KeyCodes } from "../cookie-catcher/types";
 import useCountdown from "../cookie-catcher/useCountdown";
 interface Props {
-  onScoreUpdate: (score: number) => void
+  onScoreUpdate: (score: number) => void;
+  speed: number;
 }
 
-const CookieCatcher: FC<Props> = ({ onScoreUpdate }) => {
+const CookieCatcher: FC<Props> = ({ onScoreUpdate, speed }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const requestRef = useRef<number | null>(null);
   const [count, setCount] = useState(0);
   const [countdown, startCountdown] = useCountdown();
   const [inProgress, setInProgress] = useState(false);
-  requestRef.current = requestAnimationFrame(Renderer.tick.bind(Renderer));
+  if (inProgress) {
+    requestRef.current = requestAnimationFrame(Renderer.tick.bind(Renderer));
+  }
 
   // Teardown only effect
   useEffect(() => {
@@ -73,8 +76,7 @@ const CookieCatcher: FC<Props> = ({ onScoreUpdate }) => {
       return;
     }
     setInProgress(true);
-    // TODO - support dynamic speeds
-    Renderer.init(context, 20, canvas.width, canvas.height, 2, 
+    Renderer.init(context, 20, canvas.width, canvas.height, speed, 
       (score) => { 
         setCount((count) => count + 1)
       },
