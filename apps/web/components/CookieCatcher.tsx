@@ -1,21 +1,20 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, PropsWithChildren, useEffect, useRef, useState } from "react";
 import styles from "../styles/CookieCatcher.module.css";
 import Image from "next/image";
 import Renderer from "../cookie-catcher/Renderer";
 import { Direction, KeyCodes } from "../cookie-catcher/types";
 import useCountdown from "../cookie-catcher/useCountdown";
 interface Props {
-
+  onScoreUpdate: (score: number) => void
 }
 
-const CookieCatcher: FC<Props> = ({}) => {
+const CookieCatcher: FC<Props> = ({ onScoreUpdate }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const requestRef = useRef<number | null>(null);
   const [count, setCount] = useState(0);
   const [countdown, startCountdown] = useCountdown();
- const [inProgress, setInProgress] = useState(false);
-  const [score, setScore] = useState(0);
+  const [inProgress, setInProgress] = useState(false);
   requestRef.current = requestAnimationFrame(Renderer.tick.bind(Renderer));
 
   // Teardown only effect
@@ -77,19 +76,18 @@ const CookieCatcher: FC<Props> = ({}) => {
     // TODO - support dynamic speeds
     Renderer.init(context, 20, canvas.width, canvas.height, 2, 
       (score) => { 
-        setScore(score);
         setCount((count) => count + 1)
       },
       (score) => {
         setInProgress(false); 
-        setScore(score);
+        onScoreUpdate(score);
         requestRef.current && cancelAnimationFrame(requestRef.current);
       });
 
     requestRef.current = requestAnimationFrame(Renderer.tick.bind(Renderer));
 
     return () => { requestRef.current && cancelAnimationFrame(requestRef.current) };
-  }, [countdown]);
+  }, [countdown, onScoreUpdate]);
 
   const startGame = async () => {
     Renderer.reset();
@@ -98,7 +96,6 @@ const CookieCatcher: FC<Props> = ({}) => {
 
   return (
     <>
-      <div>{score}</div>
       <div id="canvasWrapper" className={styles.canvasWrapper} ref={wrapperRef}>
       {countdown && countdown > 0 ? <div className={styles.countdown} key={countdown}>{countdown}</div> : null}
       {!inProgress && !countdown ? <button className={styles.startButton} onClick={startGame}>Start</button> : null}
@@ -107,6 +104,12 @@ const CookieCatcher: FC<Props> = ({}) => {
     </>
   )
 };
+
+// const MiddleMan: FC<PropsWithChildren<{}>> = ({ children }) => {
+//   return (
+//     <div className=
+//   )
+// }
 
 const CatchableCookie = () => {
   return <Image src="public/cookie.png" width={30} alt="cookie"/>

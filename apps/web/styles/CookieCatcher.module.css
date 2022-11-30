@@ -11,8 +11,8 @@
   height: 60px;
   font-size: 24px;
   padding: 5px 15px;
-  margin: 50%;
-  /* width: 20px; */
+  margin: 50% calc(50% - 50px);
+  width: 100px;
 }
 
 @keyframes counter {
@@ -33,9 +33,12 @@
 }
 
 .countdown {
+  transform-origin: center;
   position: relative;
   margin: 50%;
+  height: 20px;
+  width: 20px;
   font-size: 24px;
-
+  text-align: center;
   animation: counter 1s;
 }
