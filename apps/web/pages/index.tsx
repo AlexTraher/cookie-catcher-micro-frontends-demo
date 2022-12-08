@@ -11,6 +11,7 @@ import styles from "../styles/index.module.css";
 export default function Web() {
   const client = useQueryClient();
   const [speed, setSpeed] = useState(5);
+  const [inProgress, setProgress] = useState(false);
 
   const highScoreMutation = useMutation(["highScore"], (score: number) => setHighScore(score), {
     onSuccess: () => {
@@ -23,11 +24,11 @@ export default function Web() {
 
   return (
     <>
-      <Navbar handleSpeedChange={(speed) => setSpeed(speed)} />
+      <Navbar handleSpeedChange={(speed) => setSpeed(speed)} disableSpeedToggle={inProgress} />
       <div className={styles.contentWrapper}>
         <main className={styles.main}>
           <ClientOnly>
-            <CookieCatcher onScoreUpdate={onScoreUpdate} speed={speed}/>
+            <CookieCatcher onScoreUpdate={onScoreUpdate} speed={speed} onGameStateChange={(p) => setProgress(p)} />
           </ClientOnly>
           
         </main>

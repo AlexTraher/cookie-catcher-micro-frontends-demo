@@ -18,3 +18,8 @@
   padding: 0px 30px;
   font-size: 30px;
 }
+
+.speed {
+  display: flex;
+  flex-direction: column;
+}

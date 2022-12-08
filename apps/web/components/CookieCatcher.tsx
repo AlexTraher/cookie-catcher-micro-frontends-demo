@@ -3,19 +3,22 @@ import styles from "../styles/CookieCatcher.module.css";
 import Image from "next/image";
 import Renderer from "../cookie-catcher/Renderer";
 import { Direction, KeyCodes } from "../cookie-catcher/types";
-import useCountdown from "../cookie-catcher/useCountdown";
+import useCountdown from "../cookie-catcher/hooks/useCountdown";
+import useGameState from "../cookie-catcher/hooks/useGameState";
 interface Props {
   onScoreUpdate: (score: number) => void;
+  onGameStateChange: (inProgress: boolean) => void
   speed: number;
 }
 
-const CookieCatcher: FC<Props> = ({ onScoreUpdate, speed }) => {
+const CookieCatcher: FC<Props> = ({ onScoreUpdate, onGameStateChange, speed }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const requestRef = useRef<number | null>(null);
-  const [count, setCount] = useState(0);
+  const [,setCount] = useState(0);
   const [countdown, startCountdown] = useCountdown();
-  const [inProgress, setInProgress] = useState(false);
+  const [inProgress, setInProgress] = useGameState(onGameStateChange);
+
   if (inProgress) {
     requestRef.current = requestAnimationFrame(Renderer.tick.bind(Renderer));
   }
@@ -89,7 +92,7 @@ const CookieCatcher: FC<Props> = ({ onScoreUpdate, speed }) => {
     requestRef.current = requestAnimationFrame(Renderer.tick.bind(Renderer));
 
     return () => { requestRef.current && cancelAnimationFrame(requestRef.current) };
-  }, [countdown, onScoreUpdate]);
+  }, [countdown, onScoreUpdate, speed]);
 
   const startGame = async () => {
     Renderer.reset();
