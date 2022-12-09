@@ -1,12 +1,11 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { Button } from "ui";
 import { setHighScore } from "../client/api";
 import ClientOnly from "../components/ClientOnly";
 import CookieCatcher from "../components/CookieCatcher";
 import Navbar from "../components/Navbar";
-import Notifications from "../components/Notifications";
 import styles from "../styles/index.module.css";
+import Loader from "@my-org/mfe-loader";
 
 export default function Web() {
   const client = useQueryClient();
@@ -33,7 +32,10 @@ export default function Web() {
           
         </main>
         <aside className={styles.notificationContainer}>
-          <Notifications />
+          <Loader 
+            app={async () => (await import("@my-org/notifications")).default}
+            queryClient={client}
+          />
         </aside>
       </div>
     </>

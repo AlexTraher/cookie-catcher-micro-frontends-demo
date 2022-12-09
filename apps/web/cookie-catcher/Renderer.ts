@@ -34,13 +34,11 @@ export default class Renderer {
     const img = new Image()
     img.src = "./cookie.png";
     img.onload = () => {
-      debugger;
       this.cookieImage = img;
       this.initialised = true;
       this.listener(Cookie.interceptCount);
     }
 
-    console.log(this.canvasHeight);
   }
 
   static reset() {
@@ -91,9 +89,7 @@ export default class Renderer {
         && (cookie.x <= upperX)
         && (cookie.y >= lowerY)
         && (cookie.y <= upperY);
-      if (intercepted) {
-        console.log("intercepted cookie!");
-      }
+
       cookie.intercepted = cookie.intercepted || intercepted;
     })
   }

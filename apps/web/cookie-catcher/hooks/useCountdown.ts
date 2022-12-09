@@ -12,7 +12,6 @@ const useCountdown: UseCountdown = (step = -1) => {
   const [count, setCount] = useState<number>();
 
   const start = async (initialCount: number) => {
-    // await sleep();
     setCount(initialCount);
   }
 
@@ -23,7 +22,6 @@ const useCountdown: UseCountdown = (step = -1) => {
         return 
       };
       await sleep();
-      console.log(count);
       setCount(count - 1);
     })()
 
