@@ -7,7 +7,7 @@ import Navbar from "../components/Navbar";
 import styles from "../styles/index.module.css";
 import Loader from "@my-org/mfe-loader";
 import "systemjs";
-import CookieCatcher from "../components/CookieCatcher";
+import CookieCatcher from "../../../micro-frontends/cookie-catcher/src/components/CookieCatcher";
 
 export default function Web() {
   const client = useQueryClient();
@@ -35,23 +35,21 @@ export default function Web() {
       <Navbar handleSpeedChange={(speed) => setSpeed(speed)} disableSpeedToggle={inProgress} />
       <div className={styles.contentWrapper}>
         <main className={styles.main}>
-          <ClientOnly>
+          {/* <ClientOnly>
             <CookieCatcher 
               onScoreUpdate={onScoreUpdate}
               speed={speed}
               onGameStateChange={(p: boolean) => setProgress(p)}
             />
-          </ClientOnly>
-            {/* <Loader
+          </ClientOnly> */}
+            <Loader
               appName="@my-org/cookie-catcher"
               // app={async () => (await import("@my-org/cookie-catcher")).default}
               app={() => System.import("@my-org/cookie-catcher")}
               onScoreUpdate={onScoreUpdate} speed={speed} onGameStateChange={(p: boolean) => setProgress(p)} 
               queryClient={client} 
               wrapStyle={{ height: '100%', width: '100%' }}
-              /> */}
-          {/* </ClientOnly> */}
-          
+              />         
         </main>
         <aside className={styles.notificationContainer}>
           {/* <Notifications /> */}

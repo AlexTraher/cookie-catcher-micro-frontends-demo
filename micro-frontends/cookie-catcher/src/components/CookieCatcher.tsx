@@ -1,9 +1,10 @@
 import { FC, useEffect, useRef, useState } from "react";
 import styles from "../styles/CookieCatcher.module.css";
 import Renderer from "../cookie-catcher/Renderer";
-import { Direction, KeyCodes } from "../cookie-catcher/types";
 import useCountdown from "../cookie-catcher/hooks/useCountdown";
 import useGameState from "../cookie-catcher/hooks/useGameState";
+import { KeyCodes, Direction } from "../cookie-catcher/types";
+
 interface Props {
   onScoreUpdate: (score: number) => void;
   onGameStateChange: (inProgress: boolean) => void
