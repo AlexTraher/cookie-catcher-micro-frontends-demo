@@ -7,7 +7,6 @@ import Navbar from "../components/Navbar";
 import styles from "../styles/index.module.css";
 import Loader from "@my-org/mfe-loader";
 import "systemjs";
-import Notifications from "../components/Notifications";
 import CookieCatcher from "../components/CookieCatcher";
 
 export default function Web() {
@@ -55,14 +54,14 @@ export default function Web() {
           
         </main>
         <aside className={styles.notificationContainer}>
-          <Notifications />
-            {/* <Loader 
+          {/* <Notifications /> */}
+            <Loader 
               appName="@my-org/notifications"
-              // app={async () => (await import("@my-org/notifications")).default}
-              app={() => System.import("@my-org/notifications")}
+              app={async () => (await import("@my-org/notifications")).default}
+              // app={() => System.import("@my-org/notifications")}
               queryClient={client}
               wrapStyle={{ height: '100%' }}
-            /> */}
+            />
         </aside>
       </div>
     </>
