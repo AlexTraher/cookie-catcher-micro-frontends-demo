@@ -6,6 +6,7 @@ import CookieCatcher from "../components/CookieCatcher";
 import Navbar from "../components/Navbar";
 import styles from "../styles/index.module.css";
 import Loader from "@my-org/mfe-loader";
+import "systemjs";
 
 export default function Web() {
   const client = useQueryClient();
@@ -20,7 +21,7 @@ export default function Web() {
   const onScoreUpdate = (score: number) => {
     highScoreMutation.mutate(score);
   }
-
+  console.log("render")
   return (
     <>
       <Navbar handleSpeedChange={(speed) => setSpeed(speed)} disableSpeedToggle={inProgress} />
@@ -32,10 +33,13 @@ export default function Web() {
           
         </main>
         <aside className={styles.notificationContainer}>
-          <Loader 
-            app={async () => (await import("@my-org/notifications")).default}
-            queryClient={client}
-          />
+            <Loader 
+              appName="@my-org/notifications"
+              // app={async () => (await import("@my-org/notifications")).default}
+              app={() => System.import("@my-org/notifications")}
+              queryClient={client}
+              wrapStyle={{ height: '100%' }}
+            />
         </aside>
       </div>
     </>

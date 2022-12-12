@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@my-org/notifications": "http://localhost:8080/my-org-notifications.js"
+  }
+}
