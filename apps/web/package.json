@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "@my-org/web",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -9,14 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@my-org/mfe-loader": "workspace:*",
+    "@my-org/notifications": "workspace:*",
+    "@my-org/cookie-catcher": "workspace:*",
     "@react-three/fiber": "^8.9.1",
-    "@tanstack/react-query": "^4.16.1",
+    "@tanstack/react-query": "*",
+    "@types/systemjs": "^6.1.1",
     "intrinsic-scale": "^3.0.4",
     "konva": "^8.3.14",
     "next": "13.0.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "*",
+    "react-dom": "*",
     "react-konva": "^18.2.3",
+    "systemjs": "^6.13.0",
     "three": "^0.146.0",
     "ui": "workspace:*"
   },
@@ -24,10 +29,11 @@
     "@babel/core": "^7.0.0",
     "@types/intrinsic-scale": "^3.0.0",
     "@types/node": "^17.0.12",
-    "@types/react": "^18.0.22",
-    "@types/react-dom": "^18.0.7",
+    "@types/react": "*",
+    "@types/react-dom": "*",
     "eslint": "7.32.0",
     "eslint-config-custom": "workspace:*",
+    "next-transpile-modules": "^10.0.0",
     "tsconfig": "workspace:*",
     "typescript": "^4.5.3"
   }

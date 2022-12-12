@@ -15,6 +15,7 @@ const Notifications = () => {
 
 const NotificationSet = () => {
   const { data: notifications, isLoading, isError, isSuccess } =  useQuery(["notifications"], () => getNotifications())
+  // const isLoading = true;
   if (isLoading) {
     return <p>Loading...</p>
   }

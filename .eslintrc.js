@@ -7,4 +7,5 @@ module.exports = {
       rootDir: ["apps/*/"],
     },
   },
+  ignorePatterns: [".eslintrc.js", "next.config.js"]
 };

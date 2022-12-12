@@ -13,10 +13,19 @@
   align-items: center;
 }
 
-.highScore {
-  color: var(--gunMetal);
+.scoreBoard {
+  display: flex;
+  flex-direction: column;
   padding: 0px 30px;
-  font-size: 30px;
+  align-items: flex-end;
+  justify-content: flex-start;
+
+}
+
+.score {
+  color: var(--gunMetal);
+  font-size: 15px;
+  margin-block: 1px 1px;
 }
 
 .speed {

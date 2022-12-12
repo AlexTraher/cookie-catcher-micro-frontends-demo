@@ -1,4 +1,4 @@
-import type { Notification as NotificationType } from "../types";
+import type { Notification as NotificationType } from "./types";
 
 export const getNotifications = async (): Promise<NotificationType[]> => {
   return [
@@ -34,32 +34,3 @@ export const getNotifications = async (): Promise<NotificationType[]> => {
     },
   ]
 }
-
-export const getHighScore = async () => {
-  const storage = localStorage.getItem("highScore");
-  if (storage === null) {
-    return null;
-  }
-  return +storage;
-};
-
-export const setHighScore = async (score: number) => {
-  const currentValue = await getHighScore();
-  if (!currentValue) {
-    localStorage.setItem("highScore", `${score}`);
-  } else {
-    localStorage.setItem("highScore", `${score > currentValue ? score : currentValue}`);
-  }
-};
-
-export const getLastScore = async () => {
-  const storage = localStorage.getItem("lastScore");
-  if (storage === null) {
-    return null;
-  }
-  return +storage;
-};
-
-export const setLastScore = async (score: number) => {
-  localStorage.setItem("lastScore", `${score}`);
-};

@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "@my-org/notifications": "http://localhost:8080/my-org-notifications.js",
+    "@my-org/cookie-catcher": "http://localhost:8081/my-org-cookie-catcher.js"
+  }
+}
