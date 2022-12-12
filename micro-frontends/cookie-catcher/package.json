@@ -1,7 +1,7 @@
 {
-  "name": "@my-org/notifications",
+  "name": "@my-org/cookie-catcher",
   "scripts": {
-    "dev": "webpack serve --port=8080",
+    "dev": "webpack serve --port=8081",
     "start:standalone": "webpack serve --env standalone",
     "build": "concurrently pnpm:build:*",
     "build:webpack": "webpack --mode=production",

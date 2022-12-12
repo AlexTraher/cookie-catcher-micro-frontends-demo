@@ -1,10 +1,9 @@
 import { FC, PropsWithChildren, useEffect, useRef, useState } from "react";
-import styles from "../styles/CookieCatcher.module.css";
-import Image from "next/image";
-import Renderer from "../cookie-catcher/Renderer";
-import { Direction, KeyCodes } from "../cookie-catcher/types";
-import useCountdown from "../cookie-catcher/hooks/useCountdown";
-import useGameState from "../cookie-catcher/hooks/useGameState";
+import styles from "./CookieCatcher.module.css";
+import Renderer from "./cookie-catcher/Renderer";
+import { Direction, KeyCodes } from "./cookie-catcher/types";
+import useCountdown from "./cookie-catcher/hooks/useCountdown";
+import useGameState from "./cookie-catcher/hooks/useGameState";
 interface Props {
   onScoreUpdate: (score: number) => void;
   onGameStateChange: (inProgress: boolean) => void
@@ -109,15 +108,5 @@ const CookieCatcher: FC<Props> = ({ onScoreUpdate, onGameStateChange, speed }) =
     </>
   )
 };
-
-// const MiddleMan: FC<PropsWithChildren<{}>> = ({ children }) => {
-//   return (
-//     <div className=
-//   )
-// }
-
-const CatchableCookie = () => {
-  return <Image src="public/cookie.png" width={30} alt="cookie"/>
-}
 
 export default CookieCatcher;

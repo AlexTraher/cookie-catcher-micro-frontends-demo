@@ -1,4 +1,4 @@
-const withTM = require("next-transpile-modules")(["ui", "@my-org/mfe-loader", "@my-org/notifications"])
+const withTM = require("next-transpile-modules")(["ui", "@my-org/mfe-loader", "@my-org/notifications", "@my-org/cookie-catcher"])
 
 
 module.exports = withTM({

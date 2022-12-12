@@ -26,6 +26,7 @@ importers:
   apps/web:
     specifiers:
       '@babel/core': ^7.0.0
+      '@my-org/cookie-catcher': workspace:*
       '@my-org/mfe-loader': workspace:*
       '@my-org/notifications': workspace:*
       '@react-three/fiber': ^8.9.1
@@ -50,6 +51,7 @@ importers:
       typescript: ^4.5.3
       ui: workspace:*
     dependencies:
+      '@my-org/cookie-catcher': link:../../micro-frontends/cookie-catcher
       '@my-org/mfe-loader': link:../../packages/mfe-loader
       '@my-org/notifications': link:../../micro-frontends/notifications
       '@react-three/fiber': 8.9.1_mjlgqb43i6mvslmnwgzrdumoh4
@@ -75,6 +77,97 @@ importers:
       next-transpile-modules: 10.0.0
       tsconfig: link:../../packages/tsconfig
       typescript: 4.9.3
+
+  micro-frontends/cookie-catcher:
+    specifiers:
+      '@babel/core': ^7.15.0
+      '@babel/eslint-parser': ^7.15.0
+      '@babel/plugin-transform-runtime': ^7.15.0
+      '@babel/preset-env': ^7.15.0
+      '@babel/preset-react': ^7.14.5
+      '@babel/preset-typescript': ^7.15.0
+      '@babel/runtime': ^7.15.3
+      '@tanstack/react-query': '*'
+      '@testing-library/jest-dom': ^5.14.1
+      '@testing-library/react': ^13.0.0
+      '@types/css-modules': ^1.0.2
+      '@types/jest': ^27.0.1
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      '@types/systemjs': ^6.1.1
+      '@types/testing-library__jest-dom': ^5.14.1
+      '@types/webpack-env': ^1.16.2
+      babel-jest: ^27.0.6
+      concurrently: ^6.2.1
+      cross-env: ^7.0.3
+      eslint: ^7.32.0
+      eslint-config-prettier: ^8.3.0
+      eslint-config-ts-react-important-stuff: ^3.0.0
+      eslint-plugin-prettier: ^3.4.1
+      identity-obj-proxy: ^3.0.0
+      jest: ^27.0.6
+      jest-cli: ^27.0.6
+      prettier: ^2.3.2
+      pretty-quick: ^3.1.1
+      react: '*'
+      react-dom: '*'
+      single-spa: ^5.9.3
+      single-spa-react: ^4.3.1
+      source-map-loader: ^4.0.1
+      ts-config-single-spa: ^3.0.0
+      typescript: ^4.3.5
+      webpack: ^5.75.0
+      webpack-cli: ^4.8.0
+      webpack-config-single-spa-react: ^4.0.0
+      webpack-config-single-spa-react-ts: ^4.0.0
+      webpack-config-single-spa-ts: ^4.0.0
+      webpack-dev-server: ^4.0.0
+      webpack-merge: ^5.8.0
+    dependencies:
+      '@tanstack/react-query': 4.16.1_biqbaboplfbrettd7655fr4n2y
+      '@types/jest': 27.5.2
+      '@types/react': 18.0.25
+      '@types/react-dom': 18.0.9
+      '@types/systemjs': 6.13.0
+      '@types/webpack-env': 1.18.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      single-spa: 5.9.4
+      single-spa-react: 4.6.1_oe4v3hc54xp5qcbgqaej2txuri
+    devDependencies:
+      '@babel/core': 7.20.2
+      '@babel/eslint-parser': 7.19.1_c55ebrslybduugonwjrjd5xxqa
+      '@babel/plugin-transform-runtime': 7.19.6_@babel+core@7.20.2
+      '@babel/preset-env': 7.20.2_@babel+core@7.20.2
+      '@babel/preset-react': 7.18.6_@babel+core@7.20.2
+      '@babel/preset-typescript': 7.18.6_@babel+core@7.20.2
+      '@babel/runtime': 7.20.1
+      '@testing-library/jest-dom': 5.16.5
+      '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
+      '@types/css-modules': 1.0.2
+      '@types/testing-library__jest-dom': 5.14.5
+      babel-jest: 27.5.1_@babel+core@7.20.2
+      concurrently: 6.5.1
+      cross-env: 7.0.3
+      eslint: 7.32.0
+      eslint-config-prettier: 8.5.0_eslint@7.32.0
+      eslint-config-ts-react-important-stuff: 3.0.0_eslint@7.32.0
+      eslint-plugin-prettier: 3.4.1_azklrodwt66esftms4odwjmsay
+      identity-obj-proxy: 3.0.0
+      jest: 27.5.1
+      jest-cli: 27.5.1
+      prettier: 2.8.1
+      pretty-quick: 3.1.3_prettier@2.8.1
+      source-map-loader: 4.0.1_webpack@5.75.0
+      ts-config-single-spa: 3.0.0
+      typescript: 4.9.3
+      webpack: 5.75.0_webpack-cli@4.10.0
+      webpack-cli: 4.10.0_uaydpeuxkjjcxdbyfgk36cjdxi
+      webpack-config-single-spa-react: 4.0.4_npabyccmuonwo2rku4k53xo3hi
+      webpack-config-single-spa-react-ts: 4.0.4_qlbk3gcmyido6rbb763fgwikme
+      webpack-config-single-spa-ts: 4.1.3_qlbk3gcmyido6rbb763fgwikme
+      webpack-dev-server: 4.11.1_pda42hcaj7d62cr262fr632kue
+      webpack-merge: 5.8.0
 
   micro-frontends/notifications:
     specifiers:
@@ -3977,6 +4070,23 @@ packages:
       minimatch: 3.1.2
       semver: 6.3.0
 
+  /eslint-plugin-prettier/3.4.1_azklrodwt66esftms4odwjmsay:
+    resolution: {integrity: sha512-htg25EUYUeIhKHXjOinK4BgCcDwtLHjqaxCDsMy5nbnUMkKFvIhMVCp+5GFUXQ4Nr8lBsPqtGAqBenbpFqAA2g==}
+    engines: {node: '>=6.0.0'}
+    peerDependencies:
+      eslint: '>=5.0.0'
+      eslint-config-prettier: '*'
+      prettier: '>=1.13.0'
+    peerDependenciesMeta:
+      eslint-config-prettier:
+        optional: true
+    dependencies:
+      eslint: 7.32.0
+      eslint-config-prettier: 8.5.0_eslint@7.32.0
+      prettier: 2.8.1
+      prettier-linter-helpers: 1.0.0
+    dev: true
+
   /eslint-plugin-prettier/3.4.1_uxd3uwca74b5prxme7kige3a7y:
     resolution: {integrity: sha512-htg25EUYUeIhKHXjOinK4BgCcDwtLHjqaxCDsMy5nbnUMkKFvIhMVCp+5GFUXQ4Nr8lBsPqtGAqBenbpFqAA2g==}
     engines: {node: '>=6.0.0'}
@@ -6372,6 +6482,22 @@ packages:
       mri: 1.2.0
       multimatch: 4.0.0
       prettier: 2.8.0
+    dev: true
+
+  /pretty-quick/3.1.3_prettier@2.8.1:
+    resolution: {integrity: sha512-kOCi2FJabvuh1as9enxYmrnBC6tVMoVOenMaBqRfsvBHB0cbpYHjdQEpSglpASDFEXVwplpcGR4CLEaisYAFcA==}
+    engines: {node: '>=10.13'}
+    hasBin: true
+    peerDependencies:
+      prettier: '>=2.0.0'
+    dependencies:
+      chalk: 3.0.0
+      execa: 4.1.0
+      find-up: 4.1.0
+      ignore: 5.2.0
+      mri: 1.2.0
+      multimatch: 4.0.0
+      prettier: 2.8.1
     dev: true
 
   /process-nextick-args/2.0.1:

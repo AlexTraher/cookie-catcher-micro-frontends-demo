@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { setHighScore } from "../client/api";
 import ClientOnly from "../components/ClientOnly";
-import CookieCatcher from "../components/CookieCatcher";
+
 import Navbar from "../components/Navbar";
 import styles from "../styles/index.module.css";
 import Loader from "@my-org/mfe-loader";
@@ -21,15 +21,22 @@ export default function Web() {
   const onScoreUpdate = (score: number) => {
     highScoreMutation.mutate(score);
   }
-  console.log("render")
+
   return (
     <>
       <Navbar handleSpeedChange={(speed) => setSpeed(speed)} disableSpeedToggle={inProgress} />
       <div className={styles.contentWrapper}>
         <main className={styles.main}>
-          <ClientOnly>
-            <CookieCatcher onScoreUpdate={onScoreUpdate} speed={speed} onGameStateChange={(p) => setProgress(p)} />
-          </ClientOnly>
+          {/* <ClientOnly> */}
+            <Loader
+              appName="@my-org/cookie-catcher"
+              // app={async () => (await import("@my-org/cookie-catcher")).default}
+              app={() => System.import("@my-org/cookie-catcher")}
+              onScoreUpdate={onScoreUpdate} speed={speed} onGameStateChange={(p: boolean) => setProgress(p)} 
+              queryClient={client} 
+              wrapStyle={{ height: '100%', width: '100%' }}
+              />
+          {/* </ClientOnly> */}
           
         </main>
         <aside className={styles.notificationContainer}>
