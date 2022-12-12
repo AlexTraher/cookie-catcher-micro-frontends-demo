@@ -1,9 +1,9 @@
-import { FC, PropsWithChildren, useEffect, useRef, useState } from "react";
-import styles from "./CookieCatcher.module.css";
-import Renderer from "./cookie-catcher/Renderer";
-import { Direction, KeyCodes } from "./cookie-catcher/types";
-import useCountdown from "./cookie-catcher/hooks/useCountdown";
-import useGameState from "./cookie-catcher/hooks/useGameState";
+import { FC, useEffect, useRef, useState } from "react";
+import styles from "../styles/CookieCatcher.module.css";
+import Renderer from "../cookie-catcher/Renderer";
+import { Direction, KeyCodes } from "../cookie-catcher/types";
+import useCountdown from "../cookie-catcher/hooks/useCountdown";
+import useGameState from "../cookie-catcher/hooks/useGameState";
 interface Props {
   onScoreUpdate: (score: number) => void;
   onGameStateChange: (inProgress: boolean) => void
@@ -102,7 +102,7 @@ const CookieCatcher: FC<Props> = ({ onScoreUpdate, onGameStateChange, speed }) =
     <>
       <div id="canvasWrapper" className={styles.canvasWrapper} ref={wrapperRef}>
       {countdown && countdown > 0 ? <div className={styles.countdown} key={countdown}>{countdown}</div> : null}
-      {!inProgress && !countdown ? <button className={styles.startButton} onClick={startGame}>Start</button> : null}
+      {!inProgress && !countdown ? <button className={styles.startButton} onClick={startGame}>Start (speed: {speed})</button> : null}
         <canvas ref={canvasRef} className={styles.canvas}/>
       </div>
     </>

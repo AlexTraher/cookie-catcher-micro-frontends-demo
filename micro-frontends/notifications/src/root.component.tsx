@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { FC } from "react";
-import Notifications from "./Notifications";
+// import Notifications from "./components/Notifications";
 
 
 export interface RootProps {
@@ -10,7 +10,7 @@ export interface RootProps {
 const Root: FC<RootProps> = (props) =>  {
   return (
     <QueryClientProvider client={props?.queryClient}>
-      <Notifications />
+      {/* <Notifications /> */}
     </QueryClientProvider>
   )
 }

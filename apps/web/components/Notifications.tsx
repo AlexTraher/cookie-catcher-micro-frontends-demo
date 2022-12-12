@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { FC } from "react";
-import { getNotifications } from "./api";
-import styles from "./Notifications.module.css";
-import type { Notification as NotificationType } from "./types";
+import { getNotifications } from "../client/api";
+import styles from "../styles/Notifications.module.css";
+import type { Notification as NotificationType } from "../types";
 
 const Notifications = () => {
   return (

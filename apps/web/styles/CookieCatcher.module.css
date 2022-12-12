@@ -2,7 +2,6 @@
 .canvasWrapper {
   height: 100%;
   width: 100%;
-  /* display: flex; */
 }
 
 .startButton {
@@ -12,7 +11,7 @@
   font-size: 24px;
   padding: 5px 15px;
   margin: auto calc(50% - 50px);
-  width: 100px;
+  width: 200px;
 }
 
 @keyframes counter {

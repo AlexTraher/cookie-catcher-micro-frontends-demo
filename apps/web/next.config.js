@@ -8,11 +8,11 @@ module.exports = withTM({
     module: {
       rules: [
         ...config.module.rules,
-        {
-          test: /\.js$/,
-          enforce: "pre",
-          use: ["source-map-loader"],
-        },
+        // {
+        //   test: /\.js$/,
+        //   enforce: "pre",
+        //   use: ["source-map-loader"],
+        // },
       ],
     }
   }),
