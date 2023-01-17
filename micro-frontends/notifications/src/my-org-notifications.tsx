@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOMClient from "react-dom/client";
 import { AppProps } from "single-spa";
 import singleSpaReact from "single-spa-react";
-import Root, { RootProps } from "./root.component";
+import Root, { NotificationProps } from "./root.component";
 
-const lifecycles = singleSpaReact<RootProps>({
+const lifecycles = singleSpaReact<NotificationProps>({
   renderType: "createRoot",
   React,
    // @ts-ignore

@@ -5,10 +5,12 @@ import ClientOnly from "../components/ClientOnly";
 
 import Navbar from "../components/Navbar";
 import styles from "../styles/index.module.css";
-import Loader from "@my-org/mfe-loader";
 import "systemjs";
 import Notifications from "../components/Notifications";
 import CookieCatcher from "../components/CookieCatcher";
+
+// const CookieCatcherLoader = createLoader<CookieCatcherProps>();
+// const NotificationLoader = createLoader<NotificationProps>();
 
 export default function Web() {
   const client = useQueryClient();
@@ -43,20 +45,19 @@ export default function Web() {
               onGameStateChange={(p: boolean) => setProgress(p)}
             />
           </ClientOnly>
-            {/* <Loader
+            {/* <CookieCatcherLoader
               appName="@my-org/cookie-catcher"
               // app={async () => (await import("@my-org/cookie-catcher")).default}
               app={() => System.import("@my-org/cookie-catcher")}
               onScoreUpdate={onScoreUpdate} speed={speed} onGameStateChange={(p: boolean) => setProgress(p)} 
               queryClient={client} 
               wrapStyle={{ height: '100%', width: '100%' }}
-              /> */}
-          {/* </ClientOnly> */}
+            /> */}
           
         </main>
         <aside className={styles.notificationContainer}>
           <Notifications />
-            {/* <Loader 
+            {/* <NotificationLoader 
               appName="@my-org/notifications"
               // app={async () => (await import("@my-org/notifications")).default}
               app={() => System.import("@my-org/notifications")}
