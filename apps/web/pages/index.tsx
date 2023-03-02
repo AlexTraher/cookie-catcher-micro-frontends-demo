@@ -59,8 +59,8 @@ export default function Web() {
           <Notifications />
             {/* <NotificationLoader 
               appName="@my-org/notifications"
-              // app={async () => (await import("@my-org/notifications")).default}
-              app={() => System.import("@my-org/notifications")}
+              app={async () => (await import("@my-org/notifications")).default}
+              // app={() => System.import("@my-org/notifications")}
               queryClient={client}
               wrapStyle={{ height: '100%' }}
             /> */}
