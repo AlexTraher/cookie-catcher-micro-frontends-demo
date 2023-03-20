@@ -20,7 +20,7 @@ const Navbar: FC<Props> = ({ handleSpeedChange, disableSpeedToggle }) => {
 
  return (
   <header className={styles.header}>
-    <h1>App</h1>
+    <h1>Cookie Catcher</h1>
     <label className={styles.speed}>
       Select your speed
       <input type="range" min="1" max="10" disabled={disableSpeedToggle} onChange={onSpeedChange}></input>
